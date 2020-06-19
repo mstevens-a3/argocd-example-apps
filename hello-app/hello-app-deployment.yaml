@@ -24,7 +24,7 @@ spec:
         - name: PORT
           value: "8088"
         - name: MESSAGE
-          value: "Greetings, SREs! Argo brought me here! REV: 1"
+          value: "Greetings, SREs! Argo brought me here! REV: 2"
   strategy:
     canary:
       steps:
