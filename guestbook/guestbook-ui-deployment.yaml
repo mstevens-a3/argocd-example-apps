@@ -18,6 +18,7 @@ spec:
         name: guestbook-ui
         ports:
         - containerPort: 8088
+          name: guestbook-web
         env:
         - name: PORT
           value: "8088"
