@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-app
+spec:
+  replicas: 4
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: hello-app
+  template:
+    metadata:
+      labels:
+        app: hello-app
+    spec:
+      containers:
+      - image: paulbouwer/hello-kubernetes:1.8
+        name: hello-app
+        ports:
+        - containerPort: 8088
+          name: hello-web
+        env:
+        - name: PORT
+          value: "8088"
