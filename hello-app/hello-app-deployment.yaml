@@ -22,3 +22,5 @@ spec:
         env:
         - name: PORT
           value: "8088"
+        - name: MESSAGE
+          value: "Greetings, SREs! Argo brought me here!"
