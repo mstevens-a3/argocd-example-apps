@@ -1,10 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: hello-app
 spec:
   replicas: 4
   revisionHistoryLimit: 3
+  minReadySeconds: 10
   selector:
     matchLabels:
       app: hello-app
@@ -23,4 +24,9 @@ spec:
         - name: PORT
           value: "8088"
         - name: MESSAGE
-          value: "Greetings, SREs! Argo brought me here!"
+          value: "Greetings, SREs! Argo brought me here! REV: 1"
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: {}
