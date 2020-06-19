@@ -17,7 +17,7 @@ spec:
       - image: paulbouwer/hello-kubernetes:1.8
         name: guestbook-ui
         ports:
-        - containerPort: 80
+        - containerPort: 8088
         env:
         - name: PORT
-          value: "80"
+          value: "8088"
