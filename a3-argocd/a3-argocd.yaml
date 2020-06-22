@@ -2395,7 +2395,7 @@ spec:
         - "20"
         - --operation-processors
         - "10"
-        image: argoproj/argocd:v1.6.1
+        image: argoproj/argocd:v1.6.0
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
