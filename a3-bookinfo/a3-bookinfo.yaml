@@ -184,7 +184,7 @@ spec:
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
-        image: docker.io/istio/examples-bookinfo-reviews-v1:1.16.0
+        image: docker.io/istio/examples-bookinfo-reviews-v1:1.16.1
         imagePullPolicy: IfNotPresent
         env:
         - name: LOG_DIR
@@ -210,6 +210,13 @@ spec:
         args:
         - name: service-name
           value: reviews.default.svc.cluster.local
+      steps:
+      - setWeight: 20
+      - pause: {duration: 25s}
+      - setWeight: 50
+      - pause: {duration: 25s}
+      - setWeight: 80
+      - pause: {duration: 15s}
 ---
 ##################################################################################################
 # Productpage services
@@ -258,7 +265,7 @@ spec:
       serviceAccountName: bookinfo-productpage
       containers:
       - name: productpage
-        image: docker.io/istio/examples-bookinfo-productpage-v1:1.16.0
+        image: docker.io/istio/examples-bookinfo-productpage-v1:1.16.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
@@ -277,4 +284,11 @@ spec:
         args:
         - name: service-name
           value: ratings.default.svc.cluster.local
+      steps:
+      - setWeight: 20
+      - pause: {duration: 15s}
+      - setWeight: 50
+      - pause: {duration: 15s}
+      - setWeight: 80
+      - pause: {duration: 15s}
 ---
