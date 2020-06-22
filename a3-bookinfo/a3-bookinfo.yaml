@@ -165,12 +165,12 @@ metadata:
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: reviews-v1
+  name: reviews
   labels:
     app: reviews
     version: v1
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       app: reviews
@@ -184,7 +184,7 @@ spec:
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
-        image: docker.io/istio/examples-bookinfo-reviews-v1:1.15.1
+        image: docker.io/istio/examples-bookinfo-reviews-v2:1.15.1
         imagePullPolicy: IfNotPresent
         env:
         - name: LOG_DIR
