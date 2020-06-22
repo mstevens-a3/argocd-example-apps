@@ -210,13 +210,6 @@ spec:
         args:
         - name: service-name
           value: reviews.default.svc.cluster.local
-      steps:
-      - setWeight: 20
-      - pause: {duration: 25s}
-      - setWeight: 50
-      - pause: {duration: 25s}
-      - setWeight: 80
-      - pause: {duration: 15s}
 ---
 ##################################################################################################
 # Productpage services
@@ -284,11 +277,4 @@ spec:
         args:
         - name: service-name
           value: ratings.default.svc.cluster.local
-      steps:
-      - setWeight: 20
-      - pause: {duration: 15s}
-      - setWeight: 50
-      - pause: {duration: 15s}
-      - setWeight: 80
-      - pause: {duration: 15s}
 ---
