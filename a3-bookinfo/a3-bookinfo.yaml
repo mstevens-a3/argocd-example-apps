@@ -244,7 +244,7 @@ metadata:
     app: productpage
     version: v1
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: productpage
@@ -276,5 +276,5 @@ spec:
         - templateName: error-rate
         args:
         - name: service-name
-          value: ratings.default.svc.cluster.local
+          value: productpage.default.svc.cluster.local
 ---
