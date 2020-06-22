@@ -281,6 +281,13 @@ spec:
       activeService: productpage
       previewService: productpage-preview
       autoPromotionEnabled: false
+      prePromotionAnalysis:
+        templates:
+        - templateName: success-rate
+        - templateName: error-rate
+        args:
+        - name: service-name
+          value: productpage-preview.default.svc.cluster.local
 ---
 apiVersion: v1
 kind: Service
