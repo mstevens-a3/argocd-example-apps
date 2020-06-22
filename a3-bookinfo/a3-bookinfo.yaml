@@ -269,12 +269,32 @@ spec:
       - name: tmp
         emptyDir: {}
   strategy:
-    canary:
-      analysis:
-        templates:
-        - templateName: success-rate
-        - templateName: error-rate
-        args:
-        - name: service-name
-          value: productpage.default.svc.cluster.local
+    # canary:
+    #   analysis:
+    #     templates:
+    #     - templateName: success-rate
+    #     - templateName: error-rate
+    #     args:
+    #     - name: service-name
+    #       value: productpage.default.svc.cluster.local
+    blueGreen:
+      activeService: productpage
+      previewService: productpage-preview
+      autoPromotionEnabled: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: productpage-preview
+  labels:
+    app: productpage-preview
+    service: productpage-preview
+spec:
+  ports:
+  - port: 9081
+    targetPort: 9080
+    name: http
+  selector:
+    app: productpage-preview
+  type: LoadBalancer
 ---
