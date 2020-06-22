@@ -50,7 +50,7 @@ metadata:
   labels:
     account: details
 ---
-apiVersion: apps/v1
+apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: details-v1
@@ -106,7 +106,7 @@ metadata:
   labels:
     account: ratings
 ---
-apiVersion: apps/v1
+apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: ratings-v1
@@ -162,7 +162,7 @@ metadata:
   labels:
     account: reviews
 ---
-apiVersion: apps/v1
+apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: reviews-v1
@@ -231,7 +231,7 @@ metadata:
   labels:
     account: productpage
 ---
-apiVersion: apps/v1
+apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: productpage-v1
