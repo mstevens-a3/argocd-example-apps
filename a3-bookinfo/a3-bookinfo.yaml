@@ -203,9 +203,13 @@ spec:
         emptyDir: {}
   strategy:
     canary:
-      steps:
-      - setWeight: 20
-      - pause: {}
+      analysis:
+        templates:
+        - templateName: success-rate
+        - templateName: error-rate
+        args:
+        - name: service-name
+          value: reviews.default.svc.cluster.local
 ---
 ##################################################################################################
 # Productpage services
@@ -266,7 +270,11 @@ spec:
         emptyDir: {}
   strategy:
     canary:
-      steps:
-      - setWeight: 20
-      - pause: {}
+      analysis:
+        templates:
+        - templateName: success-rate
+        - templateName: error-rate
+        args:
+        - name: service-name
+          value: ratings.default.svc.cluster.local
 ---
