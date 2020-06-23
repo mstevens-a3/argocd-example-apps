@@ -184,7 +184,7 @@ spec:
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
-        image: docker.io/istio/examples-bookinfo-reviews-v1:1.15.1
+        image: docker.io/istio/examples-bookinfo-reviews-v1:1.15.0
         imagePullPolicy: IfNotPresent
         env:
         - name: LOG_DIR
@@ -210,12 +210,12 @@ spec:
         args:
         - name: service-name
           value: reviews.default.svc.cluster.local
-        startingStep: 1
+        startingStep: 2
       steps:
         - setWeight: 20
-        - pause: {duration: 45s}
+        - pause: {duration: 10s}
         - setWeight: 40
-        - pause: {duration: 15s}
+        - pause: {duration: 60s}
         - setWeight: 80
         - pause: {duration: 15s}
 ---
