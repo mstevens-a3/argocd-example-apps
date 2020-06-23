@@ -11,6 +11,7 @@ spec:
     interval: 15s
     count: 6
     failureLimit: 5
+    inconclusiveLimit: 2
     provider:
       prometheus:
         address: http://prometheus.istio-system.svc.cluster.local:9090
@@ -35,6 +36,7 @@ spec:
     interval: 15s
     count: 6
     failureLimit: 5
+    inconclusiveLimit: 2
     provider:
       prometheus:
         address: http://prometheus.istio-system.svc.cluster.local:9090
