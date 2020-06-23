@@ -206,7 +206,7 @@ spec:
       analysis:
         templates:
         - templateName: success-rate
-        - templateName: error-rate
+        - templateName: request-rate
         args:
         - name: service-name
           value: reviews.default.svc.cluster.local
@@ -284,7 +284,7 @@ spec:
       prePromotionAnalysis:
         templates:
         - templateName: success-rate
-        - templateName: error-rate
+        - templateName: request-rate
         args:
         - name: service-name
           value: productpage-preview.default.svc.cluster.local

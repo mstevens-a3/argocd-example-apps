@@ -30,7 +30,7 @@ spec:
   args:
   - name: service-name
   metrics:
-  - name: error-rate
+  - name: request-rate
     successCondition: result <= 0.95
     interval: 15s
     count: 5
@@ -39,9 +39,4 @@ spec:
       prometheus:
         address: http://prometheus.istio-system.svc.cluster.local:9090
         query: |
-          sum(irate(
-            istio_requests_total{reporter="destination",destination_service=~"{{args.service-name}}",response_code=~"5.*"}[1m]
-          )) /
-          sum(irate(
-            istio_requests_total{reporter="destination",destination_service=~"{{args.service-name}}"}[1m]
-          ))
+          sum(irate(istio_requests_total{reporter="destination",destination_service=~"{{args.service-name}}"}[5m]))
