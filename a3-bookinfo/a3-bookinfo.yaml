@@ -210,6 +210,14 @@ spec:
         args:
         - name: service-name
           value: reviews.default.svc.cluster.local
+        startingStep: 2
+      steps:
+        - setWeight: 20
+        - pause: {duration: 15s}
+        - setWeight: 40
+        - pause: {duration: 15s}
+        - setWeight: 80
+        - pause: {duration: 15s}
 ---
 ##################################################################################################
 # Productpage services
