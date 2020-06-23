@@ -8,9 +8,9 @@ spec:
   metrics:
   - name: success-rate
     successCondition: result >= 0.95
-    interval: 5s
-    count: 5
-    failureLimit: 3
+    interval: 15s
+    count: 3
+    failureLimit: 5
     provider:
       prometheus:
         address: http://prometheus.istio-system.svc.cluster.local:9090
@@ -32,9 +32,9 @@ spec:
   metrics:
   - name: request-rate
     successCondition: result >= 0.95
-    interval: 5s
-    count: 5
-    failureLimit: 3
+    interval: 15s
+    count: 3
+    failureLimit: 5
     provider:
       prometheus:
         address: http://prometheus.istio-system.svc.cluster.local:9090
